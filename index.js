@@ -13,7 +13,8 @@ client.on("disconnect", () => console.log("Discord Disconnected"));
 client.on("reconnecting", () => console.log("Discord Reconnecting"));
 
 client.on("message", msg => {
-  if (msg.content === "!boosters") {
+  if (msg.content === "!boosters" || msg.content === "b!") {
+    console.log(msg.guild.name, msg.channel.name)
     const nitro = msg.guild.members.filter(member => member.premiumSince);
     const users = nitro.map(kid => kid.user.username);
     msg.channel.send(
